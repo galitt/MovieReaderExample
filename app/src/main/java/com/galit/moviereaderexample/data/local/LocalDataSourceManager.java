@@ -68,22 +68,14 @@ public class LocalDataSourceManager implements ILocalDataSource {
     public Flowable<MovieGroup> getMovies(EMovieGroupType movieGroupType){
 
         Realm realm = Realm.getDefaultInstance();
-//        try{
+       try{
 
             return (Flowable)realm.where(MovieGroup.class).equalTo(MovieGroup.FIELD_NAME, movieGroupType.getKey())
                     .findFirstAsync()
                     .asFlowable();
-//                    .filter(results -> results.isLoaded());
-//                            new Predicate<MovieGroup>(){
-//
-//                        @Override
-//                        public boolean test(MovieGroup realmObject) throws Exception {
-//                            return realmObject.isLoaded() && realmObject.isValid();
-//                        }
-//                    });
-//        }finally {
-//            realm.close();
-//        }
+        }finally {
+            realm.close();
+        }
     }
 
     @Override
@@ -92,7 +84,7 @@ public class LocalDataSourceManager implements ILocalDataSource {
         if(movieDTOList != null){
 
             Realm realm = Realm.getDefaultInstance();
- //           try {
+            try {
 
                 realm.executeTransaction(new Realm.Transaction() {
 
@@ -102,25 +94,11 @@ public class LocalDataSourceManager implements ILocalDataSource {
                         saveGroupMovies(realm, movieGroup, movieDTOList, imagesPath);
                         realm.insertOrUpdate(movieGroup);
                     }
-                }/*, new Realm.Transaction.OnSuccess() {
-                    @Override
-                    public void onSuccess() {
-                        if(localDataSourceResultListener != null){
-                            localDataSourceResultListener.onSuccess();
-                        }
-                    }
-                }, new Realm.Transaction.OnError() {
-                    @Override
-                    public void onError(Throwable error) {
-                        if(localDataSourceResultListener != null){
-                            localDataSourceResultListener.onError(error);
-                        }
-                    }
-                }*/);
+                });
 
-//            }finally {
-//                realm.close();
-//            }
+            }finally {
+                realm.close();
+            }
 
         }
 
@@ -130,7 +108,7 @@ public class LocalDataSourceManager implements ILocalDataSource {
     public void clearData(){
 
         Realm realm = Realm.getDefaultInstance();
-//        try{
+        try{
 
             realm.executeTransaction(new Realm.Transaction() {
 
@@ -138,23 +116,9 @@ public class LocalDataSourceManager implements ILocalDataSource {
                 public void execute(Realm realm) {
                     realm.deleteAll();
                 }
-            }/*, new Realm.Transaction.OnSuccess() {
-                @Override
-                public void onSuccess() {
-                    if(localDataSourceResultListener != null){
-                        localDataSourceResultListener.onSuccess();
-                    }
-                }
-            }, new Realm.Transaction.OnError() {
-                @Override
-                public void onError(Throwable error) {
-                    if(localDataSourceResultListener != null){
-                        localDataSourceResultListener.onError(error);
-                    }
-                }
-            }*/);
-//        }finally {
-//            realm.close();
-//        }
+            });
+        }finally {
+            realm.close();
+        }
     }
 }

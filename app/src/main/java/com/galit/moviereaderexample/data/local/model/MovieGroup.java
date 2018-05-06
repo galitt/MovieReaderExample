@@ -13,6 +13,9 @@ import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by galit on 01/05/2018.
+ *
+ * Represents many to many relation between movies and groups
+ * defined by {@link EMovieGroupType}
  */
 
 public class MovieGroup extends RealmObject {
@@ -31,6 +34,10 @@ public class MovieGroup extends RealmObject {
         return EMovieGroupType.valueOf(groupName);
     }
 
+    /**
+     * add movie to relayion
+     * @param movie
+     */
     public void addMovie(Movie movie){
         if(movie != null && movie.isValid()){
             groupMovies.add(movie);
@@ -39,8 +46,8 @@ public class MovieGroup extends RealmObject {
 
     /**
      *
-     * @param maxCount
-     * @return
+     * @param maxCount up to X first movie's images will be provided
+     * @return list of mage urls
      */
     public List<String> getBestMoviesImages(int maxCount){
 

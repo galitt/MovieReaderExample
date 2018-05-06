@@ -11,9 +11,12 @@ import io.reactivex.Observable;
 
 /**
  * Created by galit on 01/05/2018.
+ *
+ *
  */
 
 public interface ILocalDataSource {
+
     Flowable<MovieGroup> getMovies(EMovieGroupType movieGroupType);
     void saveMovies(final EMovieGroupType movieGroupType, final List<MovieDTO> movieDTOList, String imagesPath);
     void clearData();
