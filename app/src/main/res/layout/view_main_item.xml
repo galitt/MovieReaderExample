@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="390dp"
+    android:minWidth="267dp"
+    android:layout_margin="5dp"
+    android:padding="1dp"
+    android:background="@drawable/drawable_borders"
+    >
+
+    <TextView android:id="@+id/mainEmptyItemTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:text="@string/empty_item_text"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        />
+
+    <com.galit.moviereaderexample.ui.components.imageSwitcher.MultipleSourceImageSwitcher
+        android:id="@+id/mainItemImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView android:id="@+id/mainItemTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:background="@color/black_30tr"
+        android:layout_gravity="top|center_horizontal"
+
+        />
+
+</FrameLayout>

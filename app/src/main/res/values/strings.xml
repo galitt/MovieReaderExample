@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- global app strings -->
+    <string name="app_name">Movie Reader Example</string>
+    <string name="title_activity_main_screen">Movies Board</string>
+
+
+    <!--movie group titles-->
+    <string name="title_movie_group_popular">Most Popular Movies</string>
+    <string name="title_movie_group_last_year">Best Movies of %d</string>
+    <string name="title_movie_group_kids">Most Popular Kids Movies</string>
+    <string name="title_movie_group_comedy">Best Comedies</string>
+
+
+    <!--Main Screen-->
+    <string name="empty_item_text">No Movies</string>
+</resources>
