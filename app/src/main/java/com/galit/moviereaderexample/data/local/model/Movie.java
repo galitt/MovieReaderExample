@@ -14,6 +14,8 @@ import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by galit on 01/05/2018.
+ *
+ * MLocal data movie representor
  */
 
 public class Movie extends RealmObject {
